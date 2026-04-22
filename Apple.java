@@ -14,17 +14,22 @@ public class Apple extends Actor
     public void act()
     {
         // Add your action code here.
-        move(-2);
+        int speed = Greenfoot.getRandomNumber(4) + 3;
+        setLocation(getX() - speed, getY());
         
-        move(-5);
-        
-        if(getX() <= 0)
+        if (getX() <= 0)
         {
             resetApple();
         }
+        
+
         if(isTouching(Hero.class)){
+            MyWorld world = (MyWorld)getWorld();
+            world.score = world.score + 1;
+            world.undateScore();
+            
             ghost ghost = new ghost();
-            getWorld().addObject(ghost, 300, 200);
+            getWorld().addObject(ghost, getX(), getY());
             getWorld().removeObject(this);
         }
     }
