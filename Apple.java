@@ -23,7 +23,7 @@ public class Apple extends Actor
             resetApple();
         }
         if(isTouching(Hero.class)){
-            Ghost ghost = new Ghost();
+            ghost ghost = new ghost();
             getWorld().addObject(ghost, 300, 200);
             getWorld().removeObject(this);
         }
