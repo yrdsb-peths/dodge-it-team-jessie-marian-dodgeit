@@ -1,11 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Apple here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Apple extends Actor
 {
     /**
@@ -21,5 +16,25 @@ public class Apple extends Actor
         // Add your action code here.
         move(-2);
         
+        move(-5);
+        
+        if(getX() <= 0)
+        {
+            resetApple();
+        }
+        if(isTouching(Hero.class)){
+            Ghost ghost = new Ghost();
+            getWorld().addObject(ghost, 300, 200);
+            getWorld().removeObject(this);
+        }
+    }
+    
+    public void resetApple(){
+        int num = Greenfoot.getRandomNumber(2);
+        if (num == 0){
+            setLocation(600,100);
+        } else {
+            setLocation(600,300);
+        }
     }
 }
