@@ -1,11 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class ghost here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class ghost extends Actor
 {
     /**
@@ -22,4 +17,5 @@ public class ghost extends Actor
     {
         // Add your action code here.
     }
+    
 }
