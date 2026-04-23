@@ -50,6 +50,7 @@ public class MyWorld extends World {
             showText("You Win!", 300, 200);
             Greenfoot.stop();
         }
+    }
     public void updateLives() {
         showText("Lives: " + lives, 500, 20);
     }
