@@ -29,7 +29,7 @@ public class Apple extends Actor
             world.updateScore();
             
             ghost ghost = new ghost();
-            getWorld().addObject(ghost, getX(), getY());
+            getWorld().addObject(ghost, 600, getY());
             getWorld().removeObject(this);
         }
     }
