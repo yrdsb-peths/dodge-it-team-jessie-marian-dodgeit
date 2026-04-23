@@ -14,8 +14,11 @@ public class Apple extends Actor
     public void act()
     {
         // Add your action code here.
-        int speed = Greenfoot.getRandomNumber(4) + 3;
-        setLocation(getX() - speed, getY());
+        MyWorld world = (MyWorld)getWorld();
+        
+        int speed = 3 + world.score / 10;
+        move(-speed);
+        
         
         if (getX() <= 0)
         {
@@ -24,13 +27,17 @@ public class Apple extends Actor
         
 
         if(isTouching(Hero.class)){
-            MyWorld world = (MyWorld)getWorld();
+
             world.score = world.score + 1;
             world.updateScore();
             
-            ghost ghost = new ghost();
-            getWorld().addObject(ghost, 600, getY());
             getWorld().removeObject(this);
+            if(world.ghostCount < 3) {
+                spawnGhost();
+                world.ghostCount++;
+            }
+
+            resetApple();
         }
     }
     
@@ -41,5 +48,27 @@ public class Apple extends Actor
         } else {
             setLocation(600,300);
         }
+    }
+    
+    public void spawnGhost() {
+        MyWorld world = (MyWorld)getWorld();
+        ghost g = new ghost();
+        int y;
+    
+        if(Greenfoot.getRandomNumber(2) == 0) {
+            y = 100;
+        } else {
+            y = 300;
+        }
+        
+        if (y == world.lastGhostY) {
+            if (y == 100) {
+                y = 300;
+            } else {
+                y = 100;
+            }
+        }
+        world.lastGhostY = y;
+        getWorld().addObject(g, 600, y);
     }
 }
