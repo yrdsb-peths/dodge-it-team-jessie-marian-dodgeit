@@ -12,12 +12,10 @@ public class Hero extends Actor
     
     public void act()
     {
-        if (Greenfoot.mouseClicked(null)) {
-            atTop = !atTop;
-        }
-        if(atTop) {
+        if(Greenfoot.isKeyDown("up")) {
             setLocation(100, 100);
-        } else {
+        }
+        if(Greenfoot.isKeyDown("down")) {
             setLocation(100, 300);
         }
     }

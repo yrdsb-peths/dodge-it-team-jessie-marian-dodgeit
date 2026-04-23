@@ -16,20 +16,27 @@ public class ghost extends Actor
     public void act()
     {
         // Add your action code here.
-        setLocation(getX() - 3, getY());
+        MyWorld world = (MyWorld)getWorld();
+        
+        int speed = 1 + world.score / 2;
+        move(-speed);
+        
         
         if (isTouching(Hero.class)) {
-            MyWorld world = (MyWorld)getWorld();
-            world.score = world.score - 1;
+
+            world.lives = world.lives - 1;
+            world.updateLives();
             
-            if(world.score < 0) {
-                world.score = 0;
+            if(world.lives <= 0) {
+                world.showText("GAME OVER", 300, 200);
+                Greenfoot.stop();
+                return;
             }
-            
-            world.updateScore();
-            
             getWorld().removeObject(this);
+            return;
+            
         }
+        
     }
     
 }
