@@ -5,6 +5,7 @@ public class MyWorld extends World {
     public MyWorld() {
         super (600, 400, 1);
         
+        setBackground("bluerock.jpg");
         showText("Score: 0", 100, 20);
         
         Hero hero = new Hero();
