@@ -31,7 +31,6 @@ public class Apple extends Actor
             world.score = world.score + 1;
             world.updateScore();
             
-            getWorld().removeObject(this);
             if(world.ghostCount < 3) {
                 spawnGhost();
                 world.ghostCount++;
