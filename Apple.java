@@ -26,7 +26,7 @@ public class Apple extends Actor
         if(isTouching(Hero.class)){
             MyWorld world = (MyWorld)getWorld();
             world.score = world.score + 1;
-            world.undateScore();
+            world.updateScore();
             
             ghost ghost = new ghost();
             getWorld().addObject(ghost, getX(), getY());
