@@ -43,7 +43,7 @@ public class MyWorld extends World {
     
     public void stopGame() {
         
-        if(score >= 27) {
+        if(score >= 33) {
             Smile smile = new Smile();
             addObject(smile, 300, 160);
             
