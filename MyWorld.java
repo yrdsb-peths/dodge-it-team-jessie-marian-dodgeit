@@ -28,7 +28,7 @@ public class MyWorld extends World {
  
     }
 
-    public void undateScore() {
+    public void updateScore() {
         showText("Score: " + score, 100, 20);
     }
 }
