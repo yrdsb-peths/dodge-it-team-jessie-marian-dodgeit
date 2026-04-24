@@ -5,6 +5,8 @@ public class MyWorld extends World {
     public int lives = 3;
     public int ghostCount = 0;
     
+    int ghostDown = 0;
+    
     public int lastGhost = 100;
     public int lastGhostY = -1;
 
@@ -36,11 +38,14 @@ public class MyWorld extends World {
 
     public void act() {
         stopGame();
+        if(ghostDown > 0) {
+            ghostDown--;
+        }
     }
     public void updateScore() {
         showText("Score: " + score, 100, 20);
     }
-    
+
     public void stopGame() {
         
         if(score >= 33) {

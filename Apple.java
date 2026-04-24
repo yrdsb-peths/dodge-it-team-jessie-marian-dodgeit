@@ -17,11 +17,12 @@ public class Apple extends Actor
         MyWorld world = (MyWorld)getWorld();
         
         int speed = 3 + world.score / 20;
-        move(-speed);
+    
         if(speed>7)
         {
             speed = 7;
         }
+        move(-speed);
         
         if (getX() <= 0)
         {
@@ -34,9 +35,10 @@ public class Apple extends Actor
             world.score = world.score + 1;
             world.updateScore();
             
-            if(world.ghostCount < 3) {
+            if(world.ghostCount < 3 && world.ghostDown == 0) {
                 spawnGhost();
                 world.ghostCount++;
+                world.ghostDown = 30;
             }
 
             resetApple();

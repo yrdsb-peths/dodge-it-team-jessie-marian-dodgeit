@@ -19,11 +19,12 @@ public class ghost extends Actor
         MyWorld world = (MyWorld)getWorld();
         
         int speed = 2 + world.score / 20;
-        move(-speed);
+        
         if(speed>6)
         {
             speed = 6;
         }
+        move(-speed);
         
         if (isTouching(Hero.class)) {
 
