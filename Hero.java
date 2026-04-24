@@ -8,17 +8,23 @@ public class Hero extends Actor
         GreenfootImage myImage = new GreenfootImage("man.png");
         setImage(myImage);
     }
-    boolean atTop = true;
     
     public void act()
     {
-        if (Greenfoot.mouseClicked(null)) {
-            atTop = !atTop;
+        if(Greenfoot.isKeyDown("up")) {
+            setLocation(100, getY()-4);
         }
-        if(atTop) {
-            setLocation(100, 100);
-        } else {
-            setLocation(100, 300);
+        if(Greenfoot.isKeyDown("down")) {
+            setLocation(100, getY()+4);
+        }
+        
+        if(getY() < 50)
+        {
+            setLocation(100, 50);
+        }
+        if(getY() > 350)
+        {
+            setLocation(100, 350);
         }
     }
 }
