@@ -19,7 +19,7 @@ public class MyWorld extends World {
         addObject(hero, 100, 100);
         
         
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 8; i++) {
             Apple apple = new Apple();
             int y;
             if(Greenfoot.getRandomNumber(2) == 0) {
