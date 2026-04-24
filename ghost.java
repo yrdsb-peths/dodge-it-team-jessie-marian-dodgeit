@@ -28,7 +28,7 @@ public class ghost extends Actor
         
         if (isTouching(Hero.class)) {
 
-            world.lives = world.lives - 1;
+            world.lives--;
             world.updateLives();
             
             if(world.lives <= 0) {
@@ -39,6 +39,12 @@ public class ghost extends Actor
             getWorld().removeObject(this);
             return;
             
+        }
+        
+        if(getX() <= 0)
+        {
+            world.ghostCount--;
+            getWorld().removeObject(this);
         }
         
     }

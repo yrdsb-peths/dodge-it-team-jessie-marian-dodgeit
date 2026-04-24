@@ -26,53 +26,32 @@ public class Apple extends Actor
         
         if (getX() <= 0)
         {
-            resetApple();
+            getWorld().removeObject(this);
+            return;
+
         }
         
 
         if(isTouching(Hero.class)){
 
-            world.score = world.score + 1;
+            world.score++;
             world.updateScore();
             
             if(world.ghostCount < 3 && world.ghostDown == 0) {
                 spawnGhost();
                 world.ghostCount++;
-                world.ghostDown = 30;
+                world.ghostDown = 40;
             }
 
-            resetApple();
+            getWorld().removeObject(this);
         }
     }
     
-    public void resetApple(){
-        int num = Greenfoot.getRandomNumber(2);
-        if (num == 0){
-            setLocation(600,100);
-        } else {
-            setLocation(600,300);
-        }
-    }
     
     public void spawnGhost() {
         MyWorld world = (MyWorld)getWorld();
         ghost g = new ghost();
-        int y;
-    
-        if(Greenfoot.getRandomNumber(2) == 0) {
-            y = 100;
-        } else {
-            y = 300;
-        }
-        
-        if (y == world.lastGhostY) {
-            if (y == 100) {
-                y = 300;
-            } else {
-                y = 100;
-            }
-        }
-        world.lastGhostY = y;
+        int y = Greenfoot.getRandomNumber(300) + 50;
         getWorld().addObject(g, 600, y);
     }
 }
