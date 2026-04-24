@@ -16,9 +16,12 @@ public class Apple extends Actor
         // Add your action code here.
         MyWorld world = (MyWorld)getWorld();
         
-        int speed = 3 + world.score / 10;
+        int speed = 3 + world.score / 20;
         move(-speed);
-        
+        if(speed>7)
+        {
+            speed = 7;
+        }
         
         if (getX() <= 0)
         {
